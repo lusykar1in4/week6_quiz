@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProviderTheme extends ChangeNotifier {
   final List<ThemeData> _themes = [
@@ -18,13 +19,24 @@ class ProviderTheme extends ChangeNotifier {
       textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.black)),
     ),
   ];
+
   final List<String> _fonts = ['Roboto', 'Lobster', 'Oswald'];
 
   int _themeIndex = 0;
   int _fontIndex = 0;
 
   // Getter untuk Theme dan Font
-  ThemeData get currentTheme => _themes[_themeIndex];
+  ThemeData get currentTheme {
+    return _themes[_themeIndex].copyWith(
+      textTheme: TextTheme(
+        bodyMedium: GoogleFonts.getFont(
+          _fonts[_fontIndex], // Menggunakan font dari Google Fonts
+          textStyle: TextStyle(color: Colors.black),
+        ),
+      ),
+    );
+  }
+
   String get currentFont => _fonts[_fontIndex];
 
   int get themeIndex => _themeIndex;
