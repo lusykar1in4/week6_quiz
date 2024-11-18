@@ -20,9 +20,13 @@ class MainScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'This is a sample text',
+              'This is a sample text!',
               style: TextStyle(
-                  fontSize: 24, fontFamily: providerTheme.currentFont),
+                fontFamily: providerTheme.currentFont,
+                fontWeight: providerTheme.currentFont == 'Oswald'
+                    ? FontWeight.bold
+                    : FontWeight.normal,
+              ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(

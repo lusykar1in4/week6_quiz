@@ -29,9 +29,23 @@ class ProviderTheme extends ChangeNotifier {
   ThemeData get currentTheme {
     return _themes[_themeIndex].copyWith(
       textTheme: TextTheme(
+        bodyLarge: GoogleFonts.getFont(
+          _fonts[_fontIndex], // Menggunakan font dari Google Fonts
+          textStyle: TextStyle(
+            color: Colors.black,
+            fontWeight: _fonts[_fontIndex] == 'Oswald'
+                ? FontWeight.bold
+                : FontWeight.normal,
+          ),
+        ),
         bodyMedium: GoogleFonts.getFont(
           _fonts[_fontIndex], // Menggunakan font dari Google Fonts
-          textStyle: TextStyle(color: Colors.black),
+          textStyle: TextStyle(
+            color: Colors.black,
+            fontWeight: _fonts[_fontIndex] == 'Oswald'
+                ? FontWeight.bold
+                : FontWeight.normal,
+          ),
         ),
       ),
     );

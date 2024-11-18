@@ -15,12 +15,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final providerTheme = Provider.of<ProviderTheme>(context);
+
     return MaterialApp(
-      theme: providerTheme.currentTheme,
+      title: 'Flutter App',
+      theme:
+          providerTheme.currentTheme, // Gunakan tema dan font yang sudah diubah
       home: const MainScreen(),
     );
   }
